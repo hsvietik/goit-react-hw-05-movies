@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-05-movies/static/css/main.1083b3b2.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.319fe698.js",
+    "main.css": "/goit-react-hw-05-movies/static/css/main.78919cd2.css",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.c7967b91.js",
     "static/media/tmdb-logo.svg": "/goit-react-hw-05-movies/static/media/tmdb-logo.caee745762db3e030d38ebb5a167ae05.svg",
     "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.1083b3b2.css.map": "/goit-react-hw-05-movies/static/css/main.1083b3b2.css.map",
-    "main.319fe698.js.map": "/goit-react-hw-05-movies/static/js/main.319fe698.js.map"
+    "main.78919cd2.css.map": "/goit-react-hw-05-movies/static/css/main.78919cd2.css.map",
+    "main.c7967b91.js.map": "/goit-react-hw-05-movies/static/js/main.c7967b91.js.map"
   },
   "entrypoints": [
-    "static/css/main.1083b3b2.css",
-    "static/js/main.319fe698.js"
+    "static/css/main.78919cd2.css",
+    "static/js/main.c7967b91.js"
   ]
 }
