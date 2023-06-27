@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledHeader, Navigation, NavigationLink } from './Header.styled';
 import logo from './tmdb-logo.svg';
-export function Header() {
+
+function Header() {
   return (
     <StyledHeader>
       <Navigation>
@@ -18,3 +19,4 @@ export function Header() {
     </StyledHeader>
   );
 }
+export default Header;

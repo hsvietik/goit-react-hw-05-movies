@@ -1,10 +1,36 @@
-import React from 'react';
-import { TrendMovies } from 'components/TrendMovies/TrendMovies';
+import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Loader } from 'components/Loader/Loader';
+import { fetchTrendMovies } from '../api';
+import MoviesCollection from 'components/MoviesCollection/MoviesCollection';
 
-export function Home() {
+function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [trendMovies, setTrendMovies] = useState([]);
+
+  useEffect(() => {
+    async function loadTrendMovies() {
+      try {
+        setIsLoading(true);
+        const response = await fetchTrendMovies();
+        setTrendMovies(response.results);
+      } catch (error) {
+        if (error.code !== 'ERR_CANCELED') {
+          return toast.warn(`Oops, something went wrong.`);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadTrendMovies();
+  }, []);
   return (
     <>
-      <TrendMovies />
+      <MoviesCollection movies={trendMovies} sectionTitle={'Trending Today'} />
+      {isLoading && <Loader />}
+      <ToastContainer autoClose={3000} />
     </>
   );
 }
+export default Home;

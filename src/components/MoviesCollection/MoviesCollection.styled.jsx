@@ -4,12 +4,9 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h2`
-  margin-left: 30px;
+  padding: 16px 30px;
 `;
 export const List = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -19,6 +16,11 @@ export const List = styled.ul`
 export const Item = styled.li`
   width: 150px;
 `;
-export const Title = styled.p`
+export const Picture = styled.img`
   width: 150px;
+  height: 225px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`;
+export const Title = styled.p`
+  padding: 6px;
 `;

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+
 export const StyledHeader = styled.header`
   top: 0;
   left: 0;

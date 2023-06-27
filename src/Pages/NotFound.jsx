@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function NotFound() {
+function NotFound() {
   return (
     <div>
       <p>Oops! We can't find the page you're looking for</p>
@@ -8,3 +8,4 @@ export function NotFound() {
     </div>
   );
 }
+export default NotFound;
