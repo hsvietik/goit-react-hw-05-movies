@@ -27,3 +27,13 @@ export async function fetchMovies({ abortCtrl, query }) {
   });
   return response.data;
 }
+export async function fetchMovieDetails({ abortCtrl, movieID }) {
+  const params = {
+    api_key: API_KEY,
+  };
+  const response = await axios.get(`${BASE_URL}/movie/${movieID}`, {
+    signal: abortCtrl.signal,
+    params: params,
+  });
+  return response.data;
+}

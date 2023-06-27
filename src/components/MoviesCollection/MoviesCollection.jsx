@@ -8,9 +8,10 @@ import {
   Title,
 } from './MoviesCollection.styled';
 import defaultPicture from './default-image.jpg';
-function MoviesCollection({ movies, sectionTitle }) {
-  const IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 
+const IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
+
+function MoviesCollection({ movies, sectionTitle }) {
   return (
     <Section>
       <SectionTitle>{sectionTitle}</SectionTitle>
