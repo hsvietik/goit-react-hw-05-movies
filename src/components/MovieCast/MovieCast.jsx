@@ -11,11 +11,9 @@ const IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 function MovieCast() {
   const abortCtrl = useRef();
   const { movieId } = useParams();
-  console.log(movieId);
-
   const [isLoading, setIsLoading] = useState(false);
   const [movieCast, setMovieCast] = useState();
-  console.log(movieCast);
+
   useEffect(() => {
     async function loadMovieCast() {
       if (abortCtrl.current) {

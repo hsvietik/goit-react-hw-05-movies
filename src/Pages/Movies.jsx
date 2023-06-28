@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loader } from 'components/Loader/Loader';
@@ -8,13 +9,14 @@ import MoviesCollection from 'components/MoviesCollection/MoviesCollection';
 
 function Movies() {
   const abortCtrl = useRef();
-  const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
-  const onQueryChange = query => {
-    setQuery(query);
-    setMovies([]);
+  const onQueryChange = chosenQuery => {
+    chosenQuery ? setSearchParams({ query: chosenQuery }) : setSearchParams({});
+    if (chosenQuery !== query) setMovies([]);
   };
 
   useEffect(() => {
@@ -45,10 +47,14 @@ function Movies() {
       }
     }
     loadMovies();
-  }, [query]);
+  }, [query, setSearchParams]);
+
   return (
     <>
-      <Searchbar onSubmit={query => onQueryChange(query)} />
+      <Searchbar
+        onSubmit={query => onQueryChange(query)}
+        initialValue={query}
+      />
       <MoviesCollection movies={movies} />
       {isLoading && <Loader />}
       <ToastContainer autoClose={3000} />

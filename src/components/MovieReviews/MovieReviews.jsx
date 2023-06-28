@@ -9,11 +9,9 @@ import { List, Link } from './MovieReviews.styled';
 function MovieReviews() {
   const abortCtrl = useRef();
   const { movieId } = useParams();
-  console.log(movieId);
-
   const [isLoading, setIsLoading] = useState(false);
   const [movieReviews, setMovieReviews] = useState();
-  console.log(movieReviews);
+
   useEffect(() => {
     async function loadMovieReviews() {
       if (abortCtrl.current) {

@@ -7,15 +7,14 @@ import {
   SearchInput,
 } from './Searchbar.styled';
 
-function Searchbar({ onSubmit }) {
-  const handleSubmit = ({ query }, { resetForm }) => {
+function Searchbar({ onSubmit, initialValue }) {
+  const handleSubmit = ({ query }) => {
     onSubmit(query);
-    resetForm();
   };
 
   return (
     <StyledSearchbar>
-      <Formik initialValues={{ query: '' }} onSubmit={handleSubmit}>
+      <Formik initialValues={{ query: initialValue }} onSubmit={handleSubmit}>
         <StyledForm>
           <SearchInput
             type="text"
