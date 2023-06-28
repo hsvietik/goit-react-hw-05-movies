@@ -7,14 +7,14 @@ import {
   Picture,
   Title,
 } from './MoviesCollection.styled';
-import defaultPicture from './default-image.jpg';
+import defaultPicture from '../../images/default-image.jpg';
 
 const IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 
 function MoviesCollection({ movies, sectionTitle }) {
   return (
     <Section>
-      <SectionTitle>{sectionTitle}</SectionTitle>
+      {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
       <List>
         {movies.map(({ id, title, poster_path }) => {
           return (

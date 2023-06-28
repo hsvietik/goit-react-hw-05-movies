@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 export const Section = styled.section`
-  padding: 0px 20px;
+  padding: 20px;
 `;
 
 export const SectionTitle = styled.h2`

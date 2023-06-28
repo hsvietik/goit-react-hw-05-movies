@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loader } from 'components/Loader/Loader';
 import { fetchMovieDetails } from '../api';
 import MovieCard from 'components/MovieCard/MovieCard';
+import AdditionalInfo from 'components/AdditionalInfo/AdditionalInfo';
 
 function MovieDetails() {
   const abortCtrl = useRef();
-  const movieID = 420818;
-  // const [movieID, setMovieID] = useState(420818);
+  const { movieId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [movieDetails, setMovieDetails] = useState();
 
@@ -22,7 +23,8 @@ function MovieDetails() {
         setIsLoading(true);
         const response = await fetchMovieDetails({
           abortCtrl,
-          movieID,
+          movieId,
+          fetchField: 'movie',
         });
         setMovieDetails(response);
       } catch (error) {
@@ -34,14 +36,15 @@ function MovieDetails() {
       }
     }
     loadMovieDetails();
-  }, []);
+  }, [movieId]);
 
   return (
-    <div>
+    <>
       <MovieCard movieDetails={movieDetails} />
       {isLoading && <Loader />}
+      <AdditionalInfo />
       <ToastContainer autoClose={3000} />
-    </div>
+    </>
   );
 }
 export default MovieDetails;

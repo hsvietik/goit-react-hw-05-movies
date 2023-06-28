@@ -27,11 +27,27 @@ export async function fetchMovies({ abortCtrl, query }) {
   });
   return response.data;
 }
-export async function fetchMovieDetails({ abortCtrl, movieID }) {
+
+export async function fetchMovieDetails({ abortCtrl, movieId, fetchField }) {
   const params = {
     api_key: API_KEY,
+    language: 'en-US',
   };
-  const response = await axios.get(`${BASE_URL}/movie/${movieID}`, {
+  let endPoint;
+  switch (fetchField) {
+    case 'movie':
+      endPoint = `${BASE_URL}/movie/${movieId}`;
+      break;
+    case 'cast':
+      endPoint = `${BASE_URL}/movie/${movieId}/credits`;
+      break;
+    case 'reviews':
+      endPoint = `${BASE_URL}/movie/${movieId}/reviews`;
+      break;
+    default:
+      return;
+  }
+  const response = await axios.get(endPoint, {
     signal: abortCtrl.signal,
     params: params,
   });
