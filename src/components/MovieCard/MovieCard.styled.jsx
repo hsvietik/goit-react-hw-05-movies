@@ -12,7 +12,6 @@ export const BackLink = styled(Link)`
   padding: 5px;
   border-radius: 20px;
   font-size: 12px;
-  /* background-color: #90cea1; */
   background: linear-gradient(0.25turn, #90cea1, #01b4e4);
   text-align: center;
 `;
