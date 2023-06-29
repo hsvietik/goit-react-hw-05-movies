@@ -9,7 +9,7 @@ import {
 
 function Searchbar({ onSubmit, initialValue }) {
   const handleSubmit = ({ query }) => {
-    onSubmit(query);
+    onSubmit(query.toLowerCase());
   };
 
   return (
