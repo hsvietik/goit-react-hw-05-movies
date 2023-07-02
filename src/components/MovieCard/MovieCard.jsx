@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Section, BackLink, Poster, Description } from './MovieCard.styled';
 import defaultPicture from '../../images/default-image.jpg';
@@ -7,6 +7,8 @@ const IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 
 function MovieCard({ movieDetails }) {
   const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? `/movies`);
+  console.log(backLinkHref);
   if (!movieDetails) return;
   const { poster_path, title, vote_average, overview, release_date, genres } =
     movieDetails;
@@ -14,7 +16,7 @@ function MovieCard({ movieDetails }) {
 
   return (
     <>
-      <BackLink to={location.state.from}>&#129044; Go back</BackLink>
+      <BackLink to={backLinkHref.current}>&#129044; Go back</BackLink>
       <Section>
         {poster_path ? (
           <Poster src={IMAGES_URL + poster_path} alt={title} width="300" />
