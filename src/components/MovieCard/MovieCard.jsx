@@ -8,7 +8,6 @@ const IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 function MovieCard({ movieDetails }) {
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? `/movies`);
-  console.log(backLinkHref);
   if (!movieDetails) return;
   const { poster_path, title, vote_average, overview, release_date, genres } =
     movieDetails;

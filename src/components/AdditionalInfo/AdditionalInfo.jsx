@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 import { Section, SectionNav, InfoLink } from './AdditionalInfo.styled';
 
 function AdditionalInfo() {
@@ -10,7 +11,9 @@ function AdditionalInfo() {
         <InfoLink to="cast"> Cast </InfoLink>
         <InfoLink to="reviews"> Reviews </InfoLink>
       </SectionNav>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </Section>
   );
 }
